@@ -22,4 +22,10 @@
             }
         }
 
-   }
+        public function shopListView(){
+
+            $itemsHome = $this->itemsModel->listenerItems();
+            require("shop-list.php");
+            echo"<script>let typePage = 2 ;</script>";
+        }
+    }

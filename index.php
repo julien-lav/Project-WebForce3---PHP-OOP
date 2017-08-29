@@ -21,7 +21,7 @@
     // $keywords = preg_split("\[0-9]{1,3}", "rgf3g g5erg 0");
     // print_r($statements);
 
-    // Rechuperation du chemin ( de l'url apres le nom de domaine)
+    // Recuperation du chemin ( de l'url apres le nom de domaine)
     // echo $_SERVER["REQUEST_URI"];die(); // Mike/php-object-webforce3/
     
     // Verification des Method Utiliser
@@ -35,10 +35,15 @@
                 $usersController = new UsersController();
                 $usersController->addUser();
             break;
-             case FOLDER . "single": // Chargement de la Class et lancement de la methode
+            case FOLDER . "single": // Chargement de la Class et lancement de la methode
                 require "php/Controller/ShopController.php"; // Charger le fichier php
                 $apiController = new ApiController();
                 $apiController->detailItem((int)$id);
+            break;
+            case FOLDER . "shop-list": // Chargement de la Class et lancement de la methode
+                require "php/Controller/ShopController.php"; // Charger le fichier php
+                $apiController = new ShopController();
+                $apiController->shopListView();
             break;
 
 
@@ -67,8 +72,11 @@
             
             case FOLDER."single":
                 require "php/Controller/ShopController.php";
-                $shop = new ShopController();
-                $shop->single($id);
+                Controller::show_44();
+                     
+        //  $shop = new ShopController();
+        //  $shop->single($id);
+          
             break;
 
             case FOLDER . "404":

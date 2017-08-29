@@ -168,7 +168,7 @@
                 <!-- Navigation -->
                 <nav id="nav">
                     <ul id="navlist" class="sf-menu clearfix">
-                        <li class="current"><a href="index.html">Home</a>
+                        <li class="current"><a href=" <?php echo HOST . FOLDER ?>">Home</a>
                             <ul class="sub-menu">
                                 <li><a href="home-boxed.html"><span>--</span>Home Boxed</a></li>
                                 <li><a href="home-transparent.html"><span>--</span>Home Transparent</a></li>
@@ -185,6 +185,14 @@
                                 <li><a href="cart.html"><span>--</span>Shopping Cart</a></li>
                                 <li><a href="checkout.html"><span>--</span>Checkout</a></li>
                             </ul>
+                       <li><a href="#">Shop</a>
+                            <ul class="sub-menu">
+                                <?php 
+                                foreach($this->categories as $categorie)
+                                echo "<li><a href='shop-single.html'><span>" . $categorie['name'] . "</span></a></li>";
+                                ?>
+                            </ul>
+                        </li>
                         </li>
                         <li><a href="#">Women</a></li>
                         <li><a href="#">Men</a></li>
@@ -197,12 +205,7 @@
                                 <li><a href="404.html"><span>--</span>404</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Blog</a>
-                            <ul class="sub-menu">
-                                <li><a href="blog.html"><span>--</span>Blog</a></li>
-                                <li><a href="blog-single.html"><span>--</span>Blog Single</a></li>
-                            </ul>
-                        </li>
+                        
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>

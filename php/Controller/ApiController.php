@@ -12,4 +12,17 @@
             $reviewItem = $this->itemsModel->listenerReviewItem($id);
             echo json_encode(array("pictures"=> $picturesItem, "reviews"=> $reviewsItem );
         }
+
+        public function searchItems(){
+            $sql ="";
+            if(isset($_POST['price'])){
+                $sql .=" price BETWEEN " . $_POST['price'] . " AND ";
+            }
+            if(isset($_POST['categorie'])){
+                $sql .=" cvategorie_idcategorie " . $_POST['categorie'] . " AND ";
+            }
+            $sql = substr($sql);
+
+
+        }
     }

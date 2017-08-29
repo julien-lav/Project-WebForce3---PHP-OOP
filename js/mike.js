@@ -1,9 +1,10 @@
 $(function(){
 
-	console.log(idItem);
+
+function singleItem(){	
 
 	$.ajax({
-		url: "http://localhost/Mike/php-object-webforce3/single" +idItem,
+		url: "http://localhost/Mike/php-object-webforce3/single" + idItem,
 		method: "POST"
 	
 
@@ -23,5 +24,38 @@ $(function(){
 	}).fail(function(jqXRH, textStatus){
 		console.log("Request failed: ");
 	})
+}
+
+function shopListItem(){
+	$.ajax({
+		url: "http://localhost/Mike/php-object-webforce3/shop-list",
+		method: "POST",
+		data: {price : "0 AND 10"}
+
+	}).done(function(data){
+        var data = JSON.parse(data);
+        // console.log('data');
+        console.log(data);
+
+       
+    }
+    /* document.location.href; */
+
+	}).fail(function(jqXRH, textStatus){
+		console.log("Request failed: ");
+	})
+}
+ 	
+ 	switch (typePage){
+ 		case 1:
+ 			singleItem()
+ 			break;
+ 		case 2:
+ 			shopListItem()
+ 			break;
+ 			
+ 		default:
+ 			console.log("Ok")
+ 	} 
 
 });
